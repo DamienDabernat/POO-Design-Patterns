@@ -1,15 +1,11 @@
 ## Design patterns
 
-Quand nous écrivons du code, nous le faisons avec “notre style” ainsi, nous résolvons des problèmes de notre façon avec plus ou moins “d’élégance”. En dehors des critères de performances, une solution simple et claire pour une personne peut paraitre abscons et complexe pour d’autre.
+Quand nous écrivons du code, nous le faisons avec "notre style" ainsi, nous résolvons des problèmes de notre façon avec plus ou moins "d’élégance". En dehors des critères de performances, une solution simple et claire pour une personne peut paraitre abscons et complexe pour d’autre.
 Il faut bien avouer aussi, que, certaines manières de faire sont plus pertinentes que d’autre.
 
 De plus, dans le monde du développement informatique, nous sommes régulièrement confrontés aux mêmes problèmes avec toujours cette nécessité de travailler en groupe.
 
-Alors, comment faire en sorte de se mettre d’accord sur une manière commune de coder afin de répondre aux problèmes courant du développement logiciel ?
-
-En utilisant des Design Pattern. 
-
-Mais avant tout, il faut savoir de quoi on parle :
+**Alors, comment faire en sorte de se mettre d’accord sur une manière commune de coder afin de répondre aux problèmes courant du développement logiciel ? En utilisant des Design Pattern.**
 
 Le mot Design Pattern est un terme qui provient du Gang Of Four :
 Erich Gamma, Richard Helm, Ralph Johnson et John Vlissides qui date de 1994.
