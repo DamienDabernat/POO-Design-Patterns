@@ -1,6 +1,6 @@
 # Les Principes SOLID
 
-En programmation informatique, SOLID est un acronyme représentant cinqprincipes de base pour la programmation orientée objet. Ces cinq principes sont censés apporter une ligne directrice permettant le développement de logiciels plus fiables, plus robustes, plus maintenables, plus extensibles et plus testables.
+En programmation informatique, SOLID est un acronyme représentant cinq principes de base pour la programmation orientée objet. Ces cinq principes sont censés apporter une ligne directrice permettant le développement de logiciels plus fiables, plus robustes, plus maintenables, plus extensibles et plus testables.
 
 ## Single Responsability Principle
 Single Responsability Principle ou « principe de responsabilité unique » qui stipule qu'une classe doit avoir une et une seule responsabilité. Si l'on parvient à identifier dans une classe au moins deux raisons valables de la modifier, c'est que cette classe dispose d'au moins deux responsabilités.
