@@ -36,7 +36,9 @@ L’objectif est de créer une classe `DiceBearApi` avec une méthode `getRandom
 
 `https://avatars.dicebear.com/api/:sprites/:seed.svg`
 
-Le type de sprite doit être choisi une et une seule fois à l’initialisation de la classe.
+Le type de sprite doit être `human` par défaut à l’initialisation de la classe.
+Par la suite il pourrat être modifié comme bon nous semble.
+
 Ainsi, tous les appels à la classe `DiceBearApi` doivent retourner le même type de sprite. 
 La classe `DiceBearApi` peut être appelé de n’importe ou sans initialisation et sans aucun paramêtre.
 
