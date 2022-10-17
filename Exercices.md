@@ -65,6 +65,7 @@ Problème : Tous les champs sont optionnels sauf le nom et le prénom !
 public class User {
     private String firstName;    //required
     private String lastName;    //required
+    private Avatar[] avatar;     //optional
     private int age;    //optional
     private String phone;    //optional
     private String address;    //optional
@@ -73,4 +74,17 @@ public class User {
 ```
 
 Utilisez le design pattern builder pour résoudre ce problème.
+
+## 4 - State
+
+Le pole marketing est conquis ! Les ventes explosent ! Seul problème : Vos "Avatar" n'ont pas de nom.
+
+Vous trouvez une superbe API pour générer des titres : https://corporatebs-generator.sameerkumar.website/
+
+Il est grand temps de passer à l'étape supérieur et de réfléchir comment produire en masse. 
+
+Vous décidez que la création d'avatar ce déroule en 3 étapes :
+ - Création de l'utilisateur
+ - Choix du fournisseur d'avatar et création de l'avatar
+ - Attribution du titre à l'avatar
 
