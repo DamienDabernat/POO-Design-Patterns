@@ -61,6 +61,20 @@ En utilisant le patron de conception Factory vous devez créer le code qui perme
 
 `https://robohash.org/:seed.png`
 
+Voici à quoi peut ressembler l'appel à une des factories :
+
+```java
+Avatar avatarDiceBear = new DiceBearAvatar(SpriteType.FEMALE);
+avatarDiceBear.generate();
+System.out.println(avatarDiceBear.url);
+
+Avatar avatarRobot = new RobotHashAvatar();
+avatarRobot.generate();
+System.out.println(avatarRobot.url);
+```
+
+A chaque nouvel avatar crée une url unique est générée.
+
 ## 3 - Builder
 
 Vous décidez de créer des profils utilisateurs afin de mieux trairer les demande de génération d'avatar.
