@@ -1,14 +1,23 @@
 # Neufplate™
 
+## Préambule 
+
+Le cours va s’articuler comme suit :
+- Exposition d’une problématique de code
+- Prendre connaissance du design pattern grâce au site d’Alexander Shvets : [Refactorig Guru](https://refactoring.guru/fr). 
+- Résoudre la problématique en appliquant le patron de conception dans les deux langage choisi.
+
+---
+
 Vous travaillez pour l'entreprise `Neufplate™` . 
 
-C'est votre 1er jours et vous travailler en tant que developpeur dans cette entreprise et vous avez envie de faire vos preuves. 
+C'est votre 1er jour, vous travaillez en tant que developpeur chez `Neufplate™` et vous avez envie de faire vos preuves. 
 Armé de vos connaissance vous avez à coeur de programmer de la façon la plus propre possible. 
 C'est pourquoi dès que possible vous utilisez les design patterns et autres bonne pratique de developpement.
 
 L'entreprise vous lance un challenge de taille :
 
-En effet, jusqu'a maintenant l'entreprise se contenté de simplement voler les illustrations des autres, mais on lui récémment appris que cette pratique est illégale.
+En effet, jusqu'a maintenant l'entreprise se contenté de simplement voler les illustrations des autres, mais on lui a récémment appris que cette pratique est en faite illégale.
  
 C'est alors que `Neufplate™` à une idée totalement inédite !
 Elle va générer des avatars unique de façon aléatoire en fonction d'une chaine de caractères appellé `seed`.
@@ -17,9 +26,11 @@ Avec un peu de chance elle pourra même vendre ses avatars comme-ci ils étaient
 
 ## 1 - Le singleton
 
-Vous devez créer pour votre entreprise une classe qui fera des appels à une API de façon régulière.
+Pour cette première mission, vous avez repéré sur internet un site qui permet de générer des avatars.
+Vous devez donc faire une classe qui fera des appels à cette API de façon régulière.
 
-Voici la documentation de l’api : `https://avatars.dicebear.com/docs`
+[Voici la documentation de l’api : `https://avatars.dicebear.com/docs`](https://avatars.dicebear.com/docs)
+
 
 L’objectif est de créer une classe `DiceBearApi` avec une méthode `getRandomAvatar()` qui permet d’afficher une url qui ressemble à : 
 
@@ -35,9 +46,8 @@ Utilisez le design pattern du singleton pour résoudre ce problème.
 
 ## 2 - Factory 
 
-
 La 1er version de votre générateur d’avatar vous convenait très bien jusque la.
-D’ailleurs cela à tellement de succès que l’on vous demande si il est possible d'ajouter d’autre fournisseur d’avatar.
+Mais elle à tellement de succès que l’on vous demande si il est possible d'ajouter d’autre fournisseur d’avatar.
 
 Nous ne pouvons pas ajouter du code à la classe déjà existante car ce n’est pas la même API et que ne nous voulons pas complexifier le code existant.
 
