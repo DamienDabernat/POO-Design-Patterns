@@ -46,6 +46,8 @@ Utilisez le design pattern du singleton pour résoudre ce problème.
 
 Le résultat attendu est simplement l'affichage de l'url dans un terminal.
 
+[Lien vers Design.guru](https://refactoring.guru/design-patterns/singleton)
+
 ## 2 - Factory 
 
 La 1er version de votre générateur d’avatar vous convenait très bien jusque la.
