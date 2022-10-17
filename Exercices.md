@@ -48,6 +48,25 @@ Utilisez le design pattern du singleton pour résoudre ce problème.
 
 Le résultat attendu est simplement l'affichage de l'url dans un terminal.
 
+Voila un exemple de résultat attendu : 
+
+```java
+ System.out.println(DiceBearClient.getRandomAvatarUrl()); // https://avatars.dicebear.com/api/human/0.9817086718703704.svg
+
+ // Version de base
+ DiceBearClient.getInstance().spriteType = "avataaars";
+
+ //Version de ouf
+ DiceBearClient.getInstance().setSpriteType(SpriteType.AVATAAARS);
+
+ System.out.println(DiceBearClient.getRandomAvatarUrl()); // https://avatars.dicebear.com/api/avataaars/0.12462390433499249.svg
+```
+
+```php
+echo DiceBearClient::getRandomAvatarUrl(); //https://avatars.dicebear.com/api/avataaars/634dc4a687a3c.svg
+echo DiceBearClient::getRandomAvatarUrl(); //https://avatars.dicebear.com/api/avataaars/4545hjgsl45g5.svg
+```
+
 [Lien vers Design.guru](https://refactoring.guru/design-patterns/singleton)
 
 ## 2 - Factory 
@@ -59,8 +78,14 @@ Nous ne pouvons pas ajouter du code à la classe déjà existante car ce n’est
 
 En utilisant le patron de conception Factory vous devez créer le code qui permettra indifféremment de généré un avatar quel que soit le fournisseur que l’ont choisi.
 
+[Voici la documentation de la nouvelle api : `https://robohash.org/:seed.png`](https://robohash.org/:seed.png)
+
+
+L’objectif est de créer une classe `RobotHashApi` qui est un singleton avec une méthode `getRandomAvatar()` qui permet d’afficher une url qui ressemble à : 
+
 `https://robohash.org/:seed.png`
 
+Puis de créer les classes factories qui vont permettre de consuitruire n'importe quel type d'avatar.
 Voici à quoi peut ressembler l'appel à une des factories :
 
 ```java
@@ -74,6 +99,8 @@ System.out.println(avatarRobot.url);
 ```
 
 A chaque nouvel avatar crée une url unique est générée.
+
+[Lien vers Design.guru](https://refactoring.guru/design-patterns/singleton)
 
 ## 3 - Builder
 
