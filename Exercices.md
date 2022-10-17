@@ -64,7 +64,14 @@ Voila un exemple de résultat attendu :
 
 ```php
 echo DiceBearClient::getRandomAvatarUrl(); //https://avatars.dicebear.com/api/avataaars/634dc4a687a3c.svg
-echo DiceBearClient::getRandomAvatarUrl(); //https://avatars.dicebear.com/api/avataaars/4545hjgsl45g5.svg
+
+// Version de base
+DiceBearClient::getInstance()->setSpriteType("human");
+
+//Version de ouf
+DiceBearClient::getInstance()->setSpriteType(SpriteType::Human);
+
+echo DiceBearClient::getRandomAvatarUrl();
 ```
 
 [Lien vers Design.guru](https://refactoring.guru/design-patterns/singleton)
