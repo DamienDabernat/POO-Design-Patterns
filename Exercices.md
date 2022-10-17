@@ -44,6 +44,8 @@ L’élement ‘seed’ quant à lui est alétoirement généré à chaque appel
 
 Utilisez le design pattern du singleton pour résoudre ce problème.
 
+Le résultat attendu est simplement l'affichage de l'url dans un terminal.
+
 ## 2 - Factory 
 
 La 1er version de votre générateur d’avatar vous convenait très bien jusque la.
