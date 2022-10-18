@@ -259,7 +259,7 @@ Voici vos objectifs :
 4. Créer un avatar qui aura pour seed le hash précédement crée
 5. Orchestrer tout cela grâce au design pattern d'état
 
-### 1 - Créer une classe `Nft`
+#### 1 - Créer une classe `Nft`
 
 ```java
 public class Nft {
@@ -270,11 +270,11 @@ public class Nft {
 }
 ```
 
-### 2 - Donner un nom a vos Nft grâce à une api client
+#### 2 - Donner un nom a vos Nft grâce à une api client
 
 Voici une superbe API pour générer des titres : https://corporatebs-generator.sameerkumar.website/
 
-### 3 - Générer un hash unique SHA-1
+#### 3 - Générer un hash unique SHA-1
 
 Pour rappel la société `Neufplate™` a décidé qu'il y aurait collision si le hash commence par `0000`. 
 
@@ -309,7 +309,7 @@ sha1(nonce + "#" + title);
 
 Un `nonce` est un nombre utilisé en criptographie pour faire varier le hash tout en gardant une partie fixe (ici le titre). L'idée est d'initialiser le `nonce`à `0` puis de créer le hash de `nonce + "#" + title` si le hash ne commmence pas par `0000` alors il suffira d'incrémenter le `nonce` de 1. Recommencer le processus jusqu'a avoir une collision.
 
-### 4 - Créer un avatar qui aura pour seed le hash précédement crée
+#### 4 - Créer un avatar qui aura pour seed le hash précédement crée
 
 N'oubliez pas d'ajouter une méthode `getAvatarFromHash(String hash);` à l'interface `AvatarClientInterface`.
 
@@ -326,7 +326,7 @@ Puis ajoutez une méthode supplémentaire à votre classe `Avatar` permettant de
  }
 ```
 
-### 5 - Orchestrer tout cela grâce au design pattern d'état
+#### 5 - Orchestrer tout cela grâce au design pattern d'état
 
 Voici l'ordre des états :
 1. `TitlingState`
