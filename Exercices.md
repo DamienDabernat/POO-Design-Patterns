@@ -238,6 +238,10 @@ interface Builder
 }
 ```
 
+Ps : Ne pas utiliser de `Director`, dans notre cas ce n'est pas nécéssaire.
+
+[Lien vers Design.guru](https://refactoring.guru/design-patterns/builder)
+
 ## 4 - State
 
 Le pole marketing est conquis ! Les ventes explosent ! Seul problème : Vos "Avatar" n'ont pas de nom.
