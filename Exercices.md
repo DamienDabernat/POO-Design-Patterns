@@ -133,6 +133,22 @@ public interface AvatarClientInterface {
 
 A chaque nouvel avatar crée une url unique est générée.
 
+Astuce ! La classe Avatar doit ressembler à :
+
+```java
+public abstract class Avatar {
+
+    public String url;
+
+    public void generate() {
+        AvatarClientInterface client = getClient();
+        this.url = client.getRandomAvatarUrl();
+    }
+
+    protected abstract AvatarClientInterface getClient();
+}
+```
+
 [Lien vers Design.guru](https://refactoring.guru/fr/design-patterns/factory-method)
 
 ## 3 - Builder
