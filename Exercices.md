@@ -253,11 +253,13 @@ Pour rendre votre produit plus sexy vous allez lancer l'entreprise dans le monde
 De plus, il est grand temps de passer à l'étape supérieur et de réfléchir comment produire en masse. 
 
 Voici vos objectifs :
-- Créer une classe `Nft`
-- Donner un nom a vos Nft grâce à une api client
-- Générer un hash unique SHA-1 qui commence par `0000` en fonction du nom généré
-- Créer un avatar qui aura pour seed le hash précédement crée
-- Orchestrer tout cela grâce au design pattern d'état
+1. Créer une classe `Nft`
+2. Donner un nom a vos Nft grâce à une api client
+3. Générer un hash unique SHA-1 qui commence par `0000` en fonction du nom généré
+4. Créer un avatar qui aura pour seed le hash précédement crée
+5. Orchestrer tout cela grâce au design pattern d'état
+
+### 1 - Créer une classe `Nft`
 
 ```java
 public class Nft {
@@ -268,12 +270,70 @@ public class Nft {
 }
 ```
 
+### 2 - Donner un nom a vos Nft grâce à une api client
+
 Voici une superbe API pour générer des titres : https://corporatebs-generator.sameerkumar.website/
 
-Ordre des états :
+### 3 - Générer un hash unique SHA-1
+
+Pour rappel la société `Neufplate™` a décidé qu'il y aurait collision si le hash commence par `0000`. 
+
+Exemple de méthode permettant de générer un hash en SHA-1 en fonction d'un input de type `String` :
+
+En Java : 
+```java
+static String sha1(String input){
+    String sha1 = null;
+    try {
+        MessageDigest digest = MessageDigest.getInstance("SHA-1");
+        digest.reset();
+        digest.update(input.getBytes(StandardCharsets.UTF_8));
+        sha1 = String.format("%040x", new BigInteger(1, digest.digest()));
+    } catch (NoSuchAlgorithmException e) {
+        throw new RuntimeException(e);
+    }
+    return sha1;
+}
+```
+
+En PHP :
+```php
+sha1(string $input)
+```
+
+Pour générer une chaine de caractère qui sera ensuite servira pour le hash, la société `Neufplate™` décide du formalisme suivant :
+
+```java
+sha1(nonce + "#" + title);
+```
+
+Un `nonce` est un nombre utilisé en criptographie pour faire varier le hash tout en gardant une partie fixe (ici le titre). L'idée est d'initialiser le `nonce`à `0` puis de créer le hash de `nonce + "#" + title` si le hash ne commmence pas par `0000` alors il suffira d'incrémenter le `nonce` de 1. Recommencer le processus jusqu'a avoir une collision.
+
+### 4 - Créer un avatar qui aura pour seed le hash précédement crée
+
+N'oubliez pas d'ajouter une méthode `getAvatarFromHash(String hash);` à l'interface `AvatarClientInterface`.
+
+Puis ajoutez une méthode supplémentaire à votre classe `Avatar` permettant de générer un avatar à partir d'un hash.
+
+```
+ public void generate() {
+     AvatarClientInterface client = getClient();
+     this.url = client.getRandomAvatarUrl();
+ }
+
+ public void generate(String hash) {
+     //...Do stuff...//
+ }
+```
+
+### 5 - Orchestrer tout cela grâce au design pattern d'état
+
+Voici l'ordre des états :
 1. `TitlingState`
 2. `MakingCollisionState`
 3. `GeneratingState`
+
+Pour vous aider vous trouverez ci-dessous un exemple de la classe `Neufplate` qui servira de base pour l'implémentation du design pattern.
 
 ```java
 public class Neufplate {
@@ -294,27 +354,5 @@ public class Neufplate {
         return this.state;
     }
 }
-```
-
-Pour rappel la société `Neufplate™` a décidé qu'il y aurait collision si le hash commence par `0000`. 
-Exemple de méthode permettant de générer un hash en SHA-1 en fonction d'un input de type `String`
-
-```java
-static String sha1(String input){
-    String sha1 = null;
-    try {
-        MessageDigest digest = MessageDigest.getInstance("SHA-1");
-        digest.reset();
-        digest.update(input.getBytes(StandardCharsets.UTF_8));
-        sha1 = String.format("%040x", new BigInteger(1, digest.digest()));
-    } catch (NoSuchAlgorithmException e) {
-        throw new RuntimeException(e);
-    }
-    return sha1;
-}
-```
-
-```php
-sha1(string $input)
 ```
 
