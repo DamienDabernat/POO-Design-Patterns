@@ -133,7 +133,7 @@ public interface AvatarClientInterface {
 
 A chaque nouvel avatar crée une url unique est générée.
 
-Astuce ! La classe Avatar doit ressembler à :
+💡 Astuce ! La classe Avatar doit ressembler à :
 
 ```java
 public abstract class Avatar {
@@ -169,23 +169,76 @@ abstract class Avatar
 
 ## 3 - Builder
 
-Vous décidez de créer des profils utilisateurs afin de mieux trairer les demande de génération d'avatar.
+Vous décidez de créer des profils utilisateurs afin de mieux trairer les demande de génération d'avatar. En effet l'entreprise `Neufplate™` soit conserver une trace des avatars générés par utilisateur.
 
-Problème : Tous les champs sont optionnels sauf le nom et le prénom !
+Mais en plus, le pôle marketing à quelques exigeance : 
+- Tous les champs sont optionnels sauf le nom et le prénom !
+- Un utlisateur doit avoir soit un numéro de téléphone soit une adresse mail 
+
+Si l'une de ces deux conditions n'est pas rempli alors la création d'un utilisateur est impossible. 
 
 ```java
 public class User {
-    private String firstName;    //required
-    private String lastName;    //required
-    private Avatar[] avatar;     //optional
-    private int age;    //optional
-    private String phone;    //optional
-    private String address;    //optional
-...
+    protected String firstName;
+    protected String lastName;
+    protected List<Avatar> avatar = new ArrayList<>();
+    protected String phone;
+    protected String address;
+    protected String email;
+}
+```
+
+```php
+class User {
+    public string $firstname;
+    public string $lastname;
+    public array $avatar;
+    public string $phone;
+    public string $email;
+    public string $address;
 }
 ```
 
 Utilisez le design pattern builder pour résoudre ce problème.
+Voici le résultat attendu :
+
+```java
+User user = new UserBuilder()
+        .addNames("John", "Doe")
+        .addAddress("Fake address 1234")
+        .addPhone("0685858585")
+        .build();
+```
+
+```php
+$builder = new UserBuilder();
+$user = $builder
+    ->addNames('John', 'Doe')
+    ->addAddress("Fake address 1234")
+    ->addEmail("damien@dabernat.fr")
+    ->build();
+```
+
+💡 Astuce ! Voici l'interface `Builder` :
+
+```java
+public interface Builder {
+    public Builder addNames(String firstname, String lastname);
+    public Builder addEmail(String email);
+    public Builder addPhone(String phone);
+    public Builder addAddress(String address);
+}
+```
+
+```php
+interface Builder
+{
+    public function addNames(string $firstname, string $lastname): Builder;
+    public function addEmail(string $email): Builder;
+    public function addPhone(string $phone): Builder;
+    public function addAddress(string $address): Builder;
+}
+```
 
 ## 4 - State
 
