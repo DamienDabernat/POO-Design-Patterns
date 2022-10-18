@@ -39,7 +39,7 @@ L’objectif est de créer une classe `DiceBearApi` avec une méthode `getRandom
 Le type de sprite doit être `human` par défaut à l’initialisation de la classe.
 Par la suite il pourrat être modifié comme bon nous semble.
 
-Ainsi, tous les appels à la classe `DiceBearApi` doivent retourner le même type de sprite. 
+Ainsi, tous les appels à la classe `DiceBearClient` doivent retourner le même type de sprite. 
 La classe `DiceBearApi` peut être appelé de n’importe ou sans initialisation et sans aucun paramêtre.
 
 L’élement ‘seed’ quant à lui est alétoirement généré à chaque appel de la fonction `GetRandomAvatar()`.
@@ -88,7 +88,7 @@ En utilisant le patron de conception Factory vous devez créer le code qui perme
 [Voici la documentation de la nouvelle api : `https://robohash.org/:seed.png`](https://robohash.org/:seed.png)
 
 
-L’objectif est de créer une classe `RobotHashApi` qui est un singleton avec une méthode `getRandomAvatar()` qui permet d’afficher une url qui ressemble à : 
+L’objectif est de créer une classe `RobotHashClient` qui est un singleton avec une méthode `getRandomAvatar()` qui permet d’afficher une url qui ressemble à : 
 
 `https://robohash.org/:seed.png`
 
