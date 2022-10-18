@@ -258,6 +258,7 @@ Voici vos objectifs :
 3. Générer un hash unique SHA-1 qui commence par `0000` en fonction du nom généré
 4. Créer un avatar qui aura pour seed le hash précédement crée
 5. Orchestrer tout cela grâce au design pattern d'état
+6. Attribuer un `Nfc` à un utilisateur 
 
 #### 1 - Créer une classe `Nft`
 
@@ -355,4 +356,15 @@ public class Neufplate {
     }
 }
 ```
+
+Faites en sorte qu'a cette étape vous puissiez toujours choisir quel type de fournisseur d'avatar vous voulez.
+
+#### 6 - Attribuer un `Nfc` à un utilisateur 
+
+A la fin du processus de fabrication (en dehors de la classe `Neufplate`). Ajouter le `Nfc` à la liste des `Nfc` déjà possédé par un utilisateur.
+Faites en sorte que la console affiche de façon lisible un utilisateur ainsi que la list des `Nfc`dont il dispose.
+
+[Lien vers Design.guru](https://refactoring.guru/design-patterns/state)
+
+
 
