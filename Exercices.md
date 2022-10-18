@@ -244,14 +244,77 @@ Ps : Ne pas utiliser de `Director`, dans notre cas ce n'est pas nécéssaire.
 
 ## 4 - State
 
-Le pole marketing est conquis ! Les ventes explosent ! Seul problème : Vos "Avatar" n'ont pas de nom.
+Le pole marketing est conquis ! Les ventes explosent !
 
-Vous trouvez une superbe API pour générer des titres : https://corporatebs-generator.sameerkumar.website/
+Mais les ambitions de `Neufplate™` sont illimitée. On vous demande d'aller encors plus loin. 
+Votre supérieur l'`Architect Growth Hacker Marketing Account Manager Stagiaire` a une idée !
 
-Il est grand temps de passer à l'étape supérieur et de réfléchir comment produire en masse. 
+Pour rendre votre produit plus sexy vous allez lancer l'entreprise dans le monde magique des NFT. 
+De plus, il est grand temps de passer à l'étape supérieur et de réfléchir comment produire en masse. 
 
-Vous décidez que la création d'avatar ce déroule en 3 étapes :
- - Création de l'utilisateur
- - Choix du fournisseur d'avatar et création de l'avatar
- - Attribution du titre à l'avatar
+Voici vos objectifs :
+- Créer une classe `Nft`
+- Donner un nom a vos Nft grâce à une api client
+- Générer un hash unique SHA-1 qui commence par `0000` en fonction du nom généré
+- Créer un avatar qui aura pour seed le hash précédement crée
+- Orchestrer tout cela grâce au design pattern d'état
+
+```java
+public class Nft {
+    public String title;
+    public String hash;
+    public Avatar avatar;
+    public User user;
+}
+```
+
+Voici une superbe API pour générer des titres : https://corporatebs-generator.sameerkumar.website/
+
+Ordre des états :
+1. `TitlingState`
+2. `MakingCollisionState`
+3. `GeneratingState`
+
+```java
+public class Neufplate {
+
+    private State state;
+    //... Some class attribute
+
+    public Neufplate(//...//) {
+        //...Do stuff..//
+        this.state = new TitlingState(this);
+    }
+
+    public void changeState(State state) {
+        this.state = state;
+    }
+
+    public State getState() {
+        return this.state;
+    }
+}
+```
+
+Pour rappel la société `Neufplate™` a décidé qu'il y aurait collision si le hash commence par `0000`. 
+Exemple de méthode permettant de générer un hash en SHA-1 en fonction d'un input de type `String`
+
+```java
+static String sha1(String input){
+    String sha1 = null;
+    try {
+        MessageDigest digest = MessageDigest.getInstance("SHA-1");
+        digest.reset();
+        digest.update(input.getBytes(StandardCharsets.UTF_8));
+        sha1 = String.format("%040x", new BigInteger(1, digest.digest()));
+    } catch (NoSuchAlgorithmException e) {
+        throw new RuntimeException(e);
+    }
+    return sha1;
+}
+```
+
+```php
+sha1(string $input)
+```
 
