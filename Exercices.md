@@ -149,6 +149,22 @@ public abstract class Avatar {
 }
 ```
 
+```php
+abstract class Avatar
+{
+
+    public string $url;
+
+    public function generate(): void {
+        $client = $this->getClient();
+        $this->url = $client->getRandomAvatarUrl();
+    }
+
+    protected abstract function getClient(): AvatarClientInterface;
+
+}
+```
+
 [Lien vers Design.guru](https://refactoring.guru/fr/design-patterns/factory-method)
 
 ## 3 - Builder
