@@ -85,7 +85,7 @@ Nous ne pouvons pas ajouter du code à la classe déjà existante car ce n’est
 
 En utilisant le patron de conception Factory vous devez créer le code qui permettra indifféremment de généré un avatar quel que soit le fournisseur que l’ont choisi.
 
-[Voici la documentation de la nouvelle api : `https://robohash.org/:seed.png`](https://robohash.org/:seed.png)
+[Voici la documentation de la nouvelle api : `https://robohash.org/`](https://robohash.org)
 
 
 L’objectif est de créer une classe `RobotHashClient` qui est un singleton avec une méthode `getRandomAvatar()` qui permet d’afficher une url qui ressemble à : 
@@ -94,6 +94,16 @@ L’objectif est de créer une classe `RobotHashClient` qui est un singleton ave
 
 Puis de créer les classes factories qui vont permettre de consuitruire n'importe quel type d'avatar.
 Voici à quoi peut ressembler l'appel à une des factories :
+
+```php
+$avatar = new DiceBearAvatar(SpriteType::FEMALE);
+$avatar->generate();
+echo $avatar->url;
+
+$avatar = new RobotHashAvatar();
+$avatar->generate();
+echo $avatar->url;
+```
 
 ```java
 Avatar avatarDiceBear = new DiceBearAvatar(SpriteType.FEMALE);
@@ -105,9 +115,25 @@ avatarRobot.generate();
 System.out.println(avatarRobot.url);
 ```
 
+Voici l'interface commune aux deux clients : 
+
+```php
+interface AvatarClientInterface {
+    public function getRandomAvatarUrl(): string;
+    public function setSpriteType(SpriteType $spriteType): void;
+}
+```
+
+```java
+public interface AvatarClientInterface {
+    public String getRandomAvatarUrl();
+    public void setSpriteType(SpriteType spriteType);
+}
+```
+
 A chaque nouvel avatar crée une url unique est générée.
 
-[Lien vers Design.guru](https://refactoring.guru/design-patterns/singleton)
+[Lien vers Design.guru](https://refactoring.guru/fr/design-patterns/factory-method)
 
 ## 3 - Builder
 
