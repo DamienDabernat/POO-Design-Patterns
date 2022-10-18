@@ -120,14 +120,12 @@ Voici l'interface commune aux deux clients :
 ```php
 interface AvatarClientInterface {
     public function getRandomAvatarUrl(): string;
-    public function setSpriteType(SpriteType $spriteType): void;
 }
 ```
 
 ```java
 public interface AvatarClientInterface {
     public String getRandomAvatarUrl();
-    public void setSpriteType(SpriteType spriteType);
 }
 ```
 
