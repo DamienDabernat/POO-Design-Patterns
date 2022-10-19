@@ -456,7 +456,6 @@ Catastrophe ! Les possesseurs de `Nft` sont en pleine révolte ! En effet ils ne
 - Ajoutez la propriétée nonce a votre classe `Nft`
 - Créez une méthode qui affichera le "certificat de propriété" du `Nft` (`nonce + "#" + title`).
 - En utilisant le design pattern observer faire en sorte d'envoyer un mail ou un SMS à l'utilisateur dès que le certifcat est disponible.
-- Par la suite le certificat ne devra pas être gardé en mémoire
 
 [Lien vers Design.guru](https://refactoring.guru/design-patterns/observer)
 
