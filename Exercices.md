@@ -439,3 +439,19 @@ Catastrophe ! Les possesseurs de `Nft` sont en pleine révolte ! En effet ils ne
 - Par la suite le certificat ne devra pas être gardé en mémoire
 
 [Lien vers Design.guru](https://refactoring.guru/design-patterns/observer)
+
+## 6 - Decorator
+
+En utilisant le design pattern decorator faites en sorte de pouvoir calculer le prix de revient d'un `Nft`.
+Puis ensuite ajoutez une marge de 70%.
+Enfin calculez le prix en TTC sachant que la TVA en France est de 20%
+
+[Lien vers Design.guru](https://refactoring.guru/design-patterns/decorator)
+
+## 7 - Présentation orale
+
+Choisi un design qui n'a pas encore été fait ni présenté puis prenez 5 min (avec ou sans dispo) pour le présenter au reste de classe.
+
+## 8 - Bonus !
+
+Uitlisez les `webhooks` Discord pour envoyer vos `Nft`.
