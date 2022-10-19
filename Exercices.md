@@ -259,6 +259,7 @@ Voici vos objectifs :
 4. Créer un avatar qui aura pour seed le hash précédement crée
 5. Orchestrer tout cela grâce au design pattern d'état
 6. Attribuer un `Nfc` à un utilisateur 
+7. Lancer la génération de `Nfc`
 
 #### 1 - Créer une classe `Nft`
 
@@ -434,6 +435,17 @@ Changer la classe `User` : En effet elle ne contiendra finalement pas d'avatars 
 
 A la fin du processus de fabrication ajouter le `Nfc` à la liste des `Nfc` déjà possédé par un utilisateur.
 Faites en sorte que la console affiche de façon lisible un utilisateur ainsi que la list des `Nfc`dont il dispose.
+
+#### 7. Lancer la génération de `Nfc`
+
+Voici le code a appeler pour lancer la génération de `Nft`. A chaque appel de la fonction `process(...)` un nouvel `Nft` est ajouté à l'utilisateur.
+
+```java
+ Provider provider = new Provider(ProviderType.DICEBEAR, SpriteType.BOTTTS);
+ Neufplate neufplate = new Neufplate();
+ neufplate.process(user, provider);
+```
+
 
 [Lien vers Design.guru](https://refactoring.guru/design-patterns/state)
 
