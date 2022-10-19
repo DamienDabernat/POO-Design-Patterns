@@ -275,6 +275,53 @@ public class Nft {
 
 Voici une superbe API pour générer des titres : https://corporatebs-generator.sameerkumar.website/
 
+Pour vous aider voici comment faire des appels réseaux en fonction du langage :
+
+En PHP :
+```php
+ private static function makeRequest(): string {
+     return file_get_contents(self::apiUrl);
+ }
+
+ private static function parseJson(string $json) {
+     $decoded_json = json_decode($json, false);
+     return $decoded_json->phrase;
+ }
+```
+
+En Java :
+```java
+private String makeRequest() {
+    try {
+        URL url = new URL(apiUrl + "/");
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        con.setRequestMethod("GET");
+
+        int status = con.getResponseCode();
+        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        String inputLine;
+        StringBuilder content = new StringBuilder();
+        while ((inputLine = in.readLine()) != null) {
+            content.append(inputLine);
+        }
+        in.close();
+        con.disconnect();
+        return content.toString();
+    } catch (IOException e) {
+        throw new RuntimeException(e);
+    }
+}
+
+private static String parseJson(String json) {
+    Pattern phrasePattern = Pattern.compile("\"phrase\":\"(.*)\"");
+    Matcher phraseMatcher = phrasePattern.matcher(json);
+    if(phraseMatcher.find()) {
+        return phraseMatcher.group(1);
+    }
+    return null;
+}
+```
+
 #### 3 - Générer un hash unique SHA-1
 
 Pour rappel la société `Neufplate™` a décidé qu'il y aurait collision si le hash commence par `0000`. 
