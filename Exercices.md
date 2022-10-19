@@ -275,6 +275,8 @@ public class Nft {
 
 Voici une superbe API pour générer des titres : https://corporatebs-generator.sameerkumar.website/
 
+La classe (le singleton) s'appellera `CorporateBsClient`. 
+
 Pour vous aider voici comment faire des appels réseaux en fonction du langage :
 
 En PHP :
