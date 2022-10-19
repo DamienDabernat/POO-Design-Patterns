@@ -540,7 +540,7 @@ public double getPrice() {
 
 ## 7 - Présentation orale
 
-Choisi un design qui n'a pas encore été fait ni présenté puis prenez 5 min (avec ou sans dispo) pour le présenter au reste de classe.
+Choisir un design qui n'a pas encore été fait ni présenté puis prenez 5 min (avec ou sans dispo) pour le présenter au reste de classe.
 
 ## 8 - Bonus !
 
