@@ -383,6 +383,20 @@ Voici l'ordre des états :
 2. `MakingCollisionState`
 3. `GeneratingState`
 
+Avec les méthodes abstraites leurs correspondant :
+
+```php
+public abstract function onTitling() : ?string;
+public abstract function onMakingCollision() : ?string;
+public abstract function onGenerating() : ?string;
+```
+
+```java
+public abstract String onTitling();
+public abstract String onMakingCollision();
+public abstract String onGenerating();
+```
+
 Pour vous aider vous trouverez ci-dessous un exemple de la classe `Neufplate` qui servira de base pour l'implémentation du design pattern.
 
 ```java
