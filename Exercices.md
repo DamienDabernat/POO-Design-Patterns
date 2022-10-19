@@ -515,6 +515,7 @@ public class NftPrice extends Price {
         return price;
     }
 }
+```
 
 Il y aura deux classes de "décoration" : 
 - `ExcludingTaxesPriceDecorator` qui calcule le prix de vente du `Nft`
