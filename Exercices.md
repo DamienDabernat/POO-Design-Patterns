@@ -417,6 +417,12 @@ public class Neufplate {
     public State getState() {
         return this.state;
     }
+    
+    public Nft process(User forUser, Provider withAvatarProvider) {
+        //...Do Stuff...//
+    }
+
+     //...Some others methods...//
 }
 ```
 
