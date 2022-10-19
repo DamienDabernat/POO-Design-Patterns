@@ -462,8 +462,61 @@ Catastrophe ! Les possesseurs de `Nft` sont en pleine révolte ! En effet ils ne
 ## 6 - Decorator
 
 En utilisant le design pattern decorator faites en sorte de pouvoir calculer le prix de revient d'un `Nft`.
-Puis ensuite ajoutez une marge de 70%.
+Il faudra ajouter deux attribut à la classe `Nft` pour connaitre l'heure de début et de fin de génération du `Nft`
+Puis ensuite ajoutez une marge de 1000% 🔥.
 Enfin calculez le prix en TTC sachant que la TVA en France est de 20%
+
+Pour vous aider voici la classe abstraite `Price` :
+
+```java
+public abstract class Price {
+    public double baseValue = 0d;
+    public abstract double calculate();
+}
+```
+
+Voici la classe concrète de `Price` :
+
+```java
+public class NftPrice extends Price {
+
+    private final int computerPrice = 4000;
+    private final int screenTimeAverageByDay = 5;
+    private final int computerLifetimeInYears = 3;
+    private final double timeElapsedInSecond;
+
+    public NftPrice(long startTime, long endTime) {
+        /... Do stuff .../
+    }
+
+    @Override
+    public double calculate() {
+        /... Do stuff .../
+        
+        this.baseValue = price;
+        return price;
+    }
+}
+
+Il y aura deux classes de "décoration" : 
+- `ExcludingTaxesPriceDecorator` qui calcule le prix de vente du `Nft`
+- `IncludingTaxesPriceDecorator` qui augmente le prix du taux de la TVA actuelle.
+
+Enfin ajoutez une méthode à la classe `Nft` qui permet de calculer le prix TTC du `Nft` :
+
+```java
+public double getPrice() {
+    Price costPrice = new NftPrice(this.startTime, this.endTime);
+
+    Price exclTax = new ExcludingTaxesPriceDecorator(costPrice);
+    exclTax.calculate();
+
+    Price inclTax = new IncludingTaxesPriceDecorator(exclTax);
+    inclTax.calculate();
+
+    return inclTax.baseValue;
+}
+```
 
 [Lien vers Design.guru](https://refactoring.guru/design-patterns/decorator)
 
