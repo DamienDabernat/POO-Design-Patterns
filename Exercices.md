@@ -453,9 +453,6 @@ Voici le code a appeler pour lancer la génération de `Nft`. A chaque appel de 
 
 Catastrophe ! Les possesseurs de `Nft` sont en pleine révolte ! En effet ils ne peuvent pas prouver de façon non équivoque qu'ils sont bien les propriétaires légitimes des `Nft` qu'ils possèdent. "Sans certificat de propriété plus rien n'a de sens !" nous apprends le CEO de `Neufplate™` !
 
-- Ajoutez un nouvel état à votre code : `AddUserState` avec la méthode d'état : `onUserAdded`
-- Faire en sorte que ce nouvel état soit le 1er à s'éxécuter
-- L'état `AddUserState` permet d'ajouter un utilisateur à un `Nft`
 - Ajoutez la propriétée nonce a votre classe `Nft`
 - Créez une méthode qui affichera le "certificat de propriété" du `Nft` (`nonce + "#" + title`).
 - En utilisant le design pattern observer faire en sorte d'envoyer un mail ou un SMS à l'utilisateur dès que le certifcat est disponible.
