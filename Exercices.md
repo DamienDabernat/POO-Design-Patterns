@@ -420,7 +420,8 @@ Faites en sorte que la console affiche de façon lisible un utilisateur ainsi qu
 Catastrophe ! Les possesseurs de `Nft` sont en pleine révolte ! En effet ils ne peuvent pas prouver de façon non équivoque qu'ils sont bien les propriétaires légitimes des `Nft` qu'ils possèdent. "Sans certificat de propriété plus rien n'a de sens !" nous apprends le CEO de `Neufplate™` !
 
 - Ajoutez la propriété nonce a votre classe `Nft`
-- Créez une méthode qui affichera le "certificat de propriété" du `Nft`.
-- En utilisant le design pattern observer faire en sorte d'envoyer un mail ou un SMS à l'utilisateur dès que quelqu'un consulte un certficat de propriété que l'utilisateur possède.
+- Créez une méthode qui affichera le "certificat de propriété" du `Nft` (`nonce + "#" + title`).
+- En utilisant le design pattern observer faire en sorte d'envoyer un mail ou un SMS à l'utilisateur dès que le certifcat est disponible.
+- Par la suite le certificat ne devra pas être gardé en mémoire
 
 [Lien vers Design.guru](https://refactoring.guru/design-patterns/observer)
