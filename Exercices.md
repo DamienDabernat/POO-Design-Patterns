@@ -429,14 +429,14 @@ public class Neufplate {
 
 Faites en sorte qu'a cette étape vous puissiez toujours choisir quel type de fournisseur d'avatar vous voulez.
 
-#### 6 - Attribuer un `Nfc` à un utilisateur 
+#### 6 - Attribuer un `Nft` à un utilisateur 
 
 Changer la classe `User` : En effet elle ne contiendra finalement pas d'avatars mais bel et bien une liste de `Nft`.
 
-A la fin du processus de fabrication ajouter le `Nfc` à la liste des `Nfc` déjà possédé par un utilisateur.
-Faites en sorte que la console affiche de façon lisible un utilisateur ainsi que la list des `Nfc`dont il dispose.
+A la fin du processus de fabrication ajouter le `Nft` à la liste des `Nft` déjà possédé par un utilisateur.
+Faites en sorte que la console affiche de façon lisible un utilisateur ainsi que la list des `Nft` dont il dispose.
 
-#### 7. Lancer la génération de `Nfc`
+#### 7. Lancer la génération de `Nft`
 
 Voici le code a appeler pour lancer la génération de `Nft`. A chaque appel de la fonction `process(...)` un nouvel `Nft` est ajouté à l'utilisateur.
 
