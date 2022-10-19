@@ -457,6 +457,24 @@ Catastrophe ! Les possesseurs de `Nft` sont en pleine révolte ! En effet ils ne
 - Créez une méthode qui affichera le "certificat de propriété" du `Nft` (`nonce + "#" + title`).
 - En utilisant le design pattern observer faire en sorte d'envoyer un mail ou un SMS à l'utilisateur dès que le certifcat est disponible.
 
+Pour vous aider voici à quoi ressemble l'interface `EventListener` :
+
+```java 
+public interface EventListener {
+    void update(String eventType, Nft nft);
+}
+```
+Il y aura deux classe de `...NotificationListener` l'une appelée `EmailNotificationListener` prenant en paramètre un email.
+L'autre appelée `SmsNotificationListener` prenant en paramètre un numéro de téléphone.
+
+Voici le genre d'output que doivent produire les classe de `...NotificationListener` :
+
+```java
+System.out.println("SMS to " + phoneNumber + ": Someone has performed " + eventType + " operation with the following file: " + nft.title);
+```
+
+Astuce : C'est la méthode `process()` de la classe `Neufplate` qui doit inscrire l'utilisateur à l'`EventManager`.
+
 [Lien vers Design.guru](https://refactoring.guru/design-patterns/observer)
 
 ## 6 - Decorator
