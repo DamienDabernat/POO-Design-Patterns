@@ -463,7 +463,7 @@ Catastrophe ! Les possesseurs de `Nft` sont en pleine révolte ! En effet ils ne
 - Ajoutez la propriétée nonce a votre classe `Nft` elle sera de type `Long`
 - Créez une méthode qui affichera le "certificat de propriété" du `Nft` (`nonce + "#" + title`).
 - En utilisant le design pattern observer faire en sorte d'envoyer un mail ou un SMS à l'utilisateur dès que le certifcat est disponible.
-
+- Enfin, envoyer un mail ou un SMS quand le `Nft`est généré.
 
 **En Java :**
 
@@ -480,7 +480,7 @@ L'autre appelée `SmsNotificationListener` prenant en paramètre un numéro de t
 Voici le genre d'output que doivent produire les classe de `...NotificationListener` :
 
 ```java
-System.out.println("SMS to " + phoneNumber + ": Someone has performed " + eventType + " operation with the following file: " + nft.title);
+System.out.println("SMS to " + phoneNumber + ": Voici votre certificat de prorpiété : " + nft.nonce);
 ```
 
 Et voici la classe 
@@ -519,6 +519,8 @@ public class EventManager {
 }
 ```
 
+Astuce : C'est la méthode `process()` de la classe `Neufplate` qui doit inscrire l'utilisateur à l'`EventManager`.
+
 **En php :** 
 
 C'est la classe `State` qui devra implémenter `SplSubject`
@@ -549,11 +551,10 @@ Voici le genre d'output que doivent produire les classe de `...NotificationListe
 
 ```php
 public function update(SplSubject $subject): void {
-    echo "SMS to " . $this->user->phone . ": Someone has performed an operation with the following NFT : " . $this->nft->title . PHP_EOL;
+    echo "SMS to " . $this->user->phone . ": Voici votre certificat de prorpiété : " . $this->nft->nonce . PHP_EOL;
 }
 ```
 
-Astuce dans les deux cas : C'est la méthode `process()` de la classe `Neufplate` qui doit inscrire l'utilisateur à l'`EventManager`.
 
 [Lien vers Design.guru](https://refactoring.guru/design-patterns/observer)
 
