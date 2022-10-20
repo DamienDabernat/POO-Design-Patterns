@@ -258,8 +258,8 @@ Voici vos objectifs :
 3. Générer un hash unique SHA-1 qui commence par `0000` en fonction du nom généré
 4. Créer un avatar qui aura pour seed le hash précédement crée
 5. Orchestrer tout cela grâce au design pattern d'état
-6. Attribuer un `Nfc` à un utilisateur 
-7. Lancer la génération de `Nfc`
+6. Attribuer un `Nft` à un utilisateur 
+7. Lancer la génération de `Nft`
 
 #### 1 - Créer une classe `Nft`
 
@@ -268,6 +268,15 @@ public class Nft {
     public String title;
     public String hash;
     public Avatar avatar;
+}
+```
+
+```php
+class Nft
+{
+    public string $title;
+    public string $hash;
+    public Avatar $avatar;
 }
 ```
 
