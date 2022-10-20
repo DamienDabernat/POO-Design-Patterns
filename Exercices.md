@@ -268,7 +268,6 @@ public class Nft {
     public String title;
     public String hash;
     public Avatar avatar;
-    public User user;
 }
 ```
 
@@ -445,7 +444,6 @@ Voici le code a appeler pour lancer la génération de `Nft`. A chaque appel de 
  Neufplate neufplate = new Neufplate();
  neufplate.process(user, provider);
 ```
-
 
 [Lien vers Design.guru](https://refactoring.guru/design-patterns/state)
 
