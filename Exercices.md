@@ -598,6 +598,32 @@ public class NftPrice extends Price {
 }
 ```
 
+```php
+class NftPrice extends Price
+{
+
+    private const computerPrice = 4000;
+    private const screenTimeAverage = 5;
+    private const computerLifetimeInYears = 3;
+
+    private int $timeElapsedInSecond;
+
+    public function __construct($startTime, $endTime)
+    {
+        /... Do stuff .../
+    }
+
+
+    public function calculate(): float
+    {
+        /... Do stuff .../
+        
+        $this->baseValue = $price;
+        return $price;
+    }
+}
+```
+
 Il y aura deux classes de "décoration" : 
 - `ExcludingTaxesPriceDecorator` qui calcule le prix de vente du `Nft`
 - `IncludingTaxesPriceDecorator` qui augmente le prix du taux de la TVA actuelle.
