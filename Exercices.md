@@ -480,7 +480,7 @@ L'autre appelée `SmsNotificationListener` prenant en paramètre un numéro de t
 Voici le genre d'output que doivent produire les classe de `...NotificationListener` :
 
 ```java
-System.out.println("SMS to " + phoneNumber + ": Voici votre certificat de prorpiété : " + nft.nonce);
+System.out.println("SMS à " + phoneNumber + ": Voici votre certificat de propriété : " + nft.nonce);
 ```
 
 Et voici la classe 
@@ -551,7 +551,7 @@ Voici le genre d'output que doivent produire les classe de `...NotificationListe
 
 ```php
 public function update(SplSubject $subject): void {
-    echo "SMS to " . $this->user->phone . ": Voici votre certificat de prorpiété : " . $this->nft->nonce . PHP_EOL;
+    echo "SMS à " . $this->user->phone . ": Voici votre certificat de propriété : " . $this->nft->nonce . PHP_EOL;
 }
 ```
 
@@ -571,6 +571,15 @@ Pour vous aider voici la classe abstraite `Price` :
 public abstract class Price {
     public double baseValue = 0d;
     public abstract double calculate();
+}
+```
+
+```php
+abstract class Price
+{
+    public float $baseValue;
+
+    public abstract function calculate(): float;
 }
 ```
 
