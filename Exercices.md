@@ -514,16 +514,37 @@ public class EventManager {
 
 C'est la classe `State` qui devra implémenter `SplSubject`
 
+Avec les méthodes suivantes : 
+
+```php
+    public function attach(SplObserver $observer): void
+    {
+        $this->observers->attach($observer);
+    }
+
+    public function detach(SplObserver $observer): void
+    {
+        $this->observers->detach($observer);
+    }
+
+    public function notify(): void
+    {
+        /** @var SplObserver $observer */
+        foreach ($this->observers as $observer) {
+            $observer->update($this);
+        }
+    }
+```
+
 Voici le genre d'output que doivent produire les classe de `...NotificationListener` :
 
 ```php
-public function update(SplSubject $subject): void
-{
+public function update(SplSubject $subject): void {
     echo "SMS to " . $this->user->phone . ": Someone has performed an operation with the following NFT : " . $this->nft->title . PHP_EOL;
 }
 ```
 
-Astuce : C'est la méthode `process()` de la classe `Neufplate` qui doit inscrire l'utilisateur à l'`EventManager`.
+Astuce dans les deux cas : C'est la méthode `process()` de la classe `Neufplate` qui doit inscrire l'utilisateur à l'`EventManager`.
 
 [Lien vers Design.guru](https://refactoring.guru/design-patterns/observer)
 
