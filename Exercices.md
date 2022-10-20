@@ -607,6 +607,7 @@ Enfin ajoutez une méthode à la classe `Nft` qui permet de calculer le prix TTC
 ```java
 public double getPrice() {
     Price costPrice = new NftPrice(this.startTime, this.endTime);
+    costPrice.calculate();
 
     Price exclTax = new ExcludingTaxesPriceDecorator(costPrice);
     exclTax.calculate();
@@ -615,6 +616,22 @@ public double getPrice() {
     inclTax.calculate();
 
     return inclTax.baseValue;
+}
+```
+
+```php
+public function getPrice(): float
+{
+    $costPrice = new NftPrice($this->startTime, $this->endTime);
+    $costPrice->calculate();
+
+    $exclTax = new ExcludingTaxesPriceDecorator($costPrice);
+    $exclTax->calculate();
+
+    $inclTax = new IncludingTaxesPriceDecorator($exclTax);
+    $inclTax->calculate();
+
+    return $inclTax->baseValue;
 }
 ```
 
