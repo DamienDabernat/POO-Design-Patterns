@@ -455,6 +455,9 @@ Catastrophe ! Les possesseurs de `Nft` sont en pleine révolte ! En effet ils ne
 - Créez une méthode qui affichera le "certificat de propriété" du `Nft` (`nonce + "#" + title`).
 - En utilisant le design pattern observer faire en sorte d'envoyer un mail ou un SMS à l'utilisateur dès que le certifcat est disponible.
 
+
+**En Java : **
+
 Pour vous aider voici à quoi ressemble l'interface `EventListener` :
 
 ```java 
@@ -469,6 +472,55 @@ Voici le genre d'output que doivent produire les classe de `...NotificationListe
 
 ```java
 System.out.println("SMS to " + phoneNumber + ": Someone has performed " + eventType + " operation with the following file: " + nft.title);
+```
+
+Et voici la classe 
+
+```java
+public class EventManager {
+    Map<String, List<EventListener>> listeners = new HashMap<>();
+
+    public EventManager(String... operations) {
+        for (String operation : operations) {
+            this.listeners.put(operation, new ArrayList<>());
+        }
+    }
+
+    public void subscribe(String eventType, EventListener listener) {
+        List<EventListener> users = listeners.get(eventType);
+        users.add(listener);
+    }
+
+    public void unsubscribe(String eventType, EventListener listener) {
+        List<EventListener> users = listeners.get(eventType);
+        users.remove(listener);
+    }
+
+    public void unsubscribeFromAllListener(String eventType) {
+        List<EventListener> users = listeners.get(eventType);
+        users.clear();
+    }
+
+    public void notify(//...To do...//) {
+        List<EventListener> listenersForOneEvent = listeners.get(//...To do...//);
+        for (EventListener listener : listenersForOneEvent) {
+            listener.update(//...To do...//);
+        }
+    }
+}
+```
+
+**En php :** 
+
+C'est la classe `State` qui devra implémenter `SplSubject`
+
+Voici le genre d'output que doivent produire les classe de `...NotificationListener` :
+
+```php
+public function update(SplSubject $subject): void
+{
+    echo "SMS to " . $this->user->phone . ": Someone has performed an operation with the following NFT : " . $this->nft->title . PHP_EOL;
+}
 ```
 
 Astuce : C'est la méthode `process()` de la classe `Neufplate` qui doit inscrire l'utilisateur à l'`EventManager`.
