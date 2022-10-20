@@ -465,7 +465,7 @@ Catastrophe ! Les possesseurs de `Nft` sont en pleine révolte ! En effet ils ne
 - En utilisant le design pattern observer faire en sorte d'envoyer un mail ou un SMS à l'utilisateur dès que le certifcat est disponible.
 
 
-**En Java : **
+**En Java :**
 
 Pour vous aider voici à quoi ressemble l'interface `EventListener` :
 
