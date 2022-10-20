@@ -365,7 +365,7 @@ N'oubliez pas d'ajouter une méthode `getAvatarFromHash(String hash);` à l'inte
 
 Puis ajoutez une méthode supplémentaire à votre classe `Avatar` permettant de générer un avatar à partir d'un hash.
 
-```
+```java
  public void generate() {
      AvatarClientInterface client = getClient();
      this.url = client.getRandomAvatarUrl();
