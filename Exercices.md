@@ -562,7 +562,7 @@ public function update(SplSubject $subject): void {
 
 En utilisant le design pattern decorator faites en sorte de pouvoir calculer le prix de revient d'un `Nft`.
 Il faudra ajouter deux attribut à la classe `Nft` pour connaitre l'heure de début et de fin de génération du `Nft`
-Puis ensuite ajoutez une marge de 1000% 🔥.
+Puis ensuite ajoutez une marge de : 🔥🔥 100000% 🔥🔥.
 Enfin calculez le prix en TTC sachant que la TVA en France est de 20%
 
 Pour vous aider voici la classe abstraite `Price` :
@@ -674,7 +674,13 @@ public function getPrice(): float
 
 ## 7 - Présentation orale
 
-Choisir un design qui n'a pas encore été fait ni présenté puis prenez 5 min (avec ou sans dispo) pour le présenter au reste de classe.
+Choisir un design qui n'a pas encore été fait ni présenté puis prenez 5 min (avec ou sans dispo) pour le présenter au reste de classe. N'oubliez pas de répondre aux questions suivantes :
+- Quand et pourquoi utiliser ce design pattern ?
+- Explication de son fonctionnement. (Avec un peu de code)
+- Il y a t-il des grosses différences d'implémentation entre Java / Php / ou Kotlin ? 
+- Avantages
+- Inconvénients
+
 
 ## 8 - Bonus !
 
